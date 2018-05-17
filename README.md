@@ -1,15 +1,28 @@
 # Background
-The general objectives of my brainhack project is to wrap up a first working version of a library I, and others, have developed over the past year or so, called brainsprite. Brainsprite started as a simple experiment: could one use native html functionalies to convert a "sprite" image composed of several sagital slices into an interactive brain viewer. The key functionality is the ability to draw a portion of an image onto the screen. Iterating (x100) this approach over rows/columns of sagital slices allow one to draw axial and coronal slices. This is a technique used to animate characters in web-based video games. I was wondering how fast it would be when animating brain slices. Turns out it is really, really [fast](https://simexp.github.io/brainsprite.js/tests/example_basic.html). Also, the brain volume now ships as an image, so using a lossy format like jpg makes it very easy to load, and quite small. My focus then shifted from speed to having a simple API for reading coordinates associated with clicks by the user (along with corresponding value in the brain volume), being able to update coordinates, loading/unloading overlays etc. Turned out this was not too complicated to make either, and the whole library is less than 500 lines, and has no dependencies. This means that brainsprite can be used as a lightweight building block for dashboards linking multiple data visualization (plots, matrices, etc) with one or multiple brain viewers. This project is more or less in a usable form, with the documentation living [here](https://simexp.github.io/brainsprite.js).
 
+The general objective of my brainhack project is to learn cortical thickness (CT) data processing and deep learning (DL). While I have aready published on CT data, I have used high-level parcels from Human connectome project (HCP), preprocessed by others. Given the expertise at this workshop, I would like to know the process from the start to parcel. This is also motivated by Mallar's comment, that once they run their preprocessing steps, CIVET will perform much better. Currently, we lost ~30% of the CT data due to QC issues. So far, I have not applied DL in my research.
+My publication: https://doi.org/10.1101/204917
 # The next step
-However, most people who do neuroimaging will find the brainsprite library useless. First, one needs to know at least a bit of html and javascript to use it, which is not the case for most neuroimagers. Second, there is no streamlined solution to generate the sprite brain images. So users need to find a way to generate them, and also take note of important meta data (size of each slice in the sprite). So consequently brainsprite is currently only used by a handful of neuroimaging developers who are comfortable manipulating brain images and want to build interactive web-based dashboards.
 
-The next step, initiated mostly by Christian Dansereau and Sebastian Urchs, has been to develop a python library called spritipy. Spritipy streamlines the generation of sprites, as well as html snippets ready to integrate in a webpage. Also, a work-in-progress feature is to inject html code in a notebook, so that the interactive brain viewer becomes a part of that notebook. An advantage of brainsprite over equivalent solutions, as far as I know, is that it works entirely client-side from an embedded image. So the interactive brain viewer could in theory be rendered even if the notebook server is not running. The data and library are also lightweight, again making it possible to just add to the notebook.
+The first step is to obtain preprocessing software from Mallar's web page.  He also offered their preprocessed actual CT data from the HCP. This would be a good validation data set, to make sure that I did everything correctly.
+
+I will also apply the preprocessing pipeline to my own brain scan from participating in research. This will enable me to really start from 0 and create a surface for 3d-printing.
+
+Finally, I will attempt to get a style transfer running to get my feed wet with DL.
+
+
 
 # Specific learning objectives and deliverables
-During the brainhack school, I'd like to finish spritipy. This involves a few things:
-  * I would like to model the API of spritipy on plot_stat_maps from the nilearn library, so that the learning curve for nilearn users is close to zero. So I need to study the nilearn API, and then re-work the spritipy API. Will likely work with Sebastian Urchs on this.
-  * I need to update the code that is currently available, and does not fully work. I need to learn about jupyter widgets for that. Anisha should be able to help me, as she has already done this with a brain viewer called papaya.
-  * create some documentation. I would like to learn sphynx to do it, which I know Elizabeth is familiar with.
-  * create some kind of community guidelines, and "easy issues". Never done that before, but would likely model some of that content from the multi-echo package of Elizabeth, which is very well done on that level (and probably all other levels as well, I am just not familiar with the rest of the package).
-  * eventually I would like to integrate spritipy directly in nilearn, which would require me to make a pull request. Although I have done it several times within my own projects, that would be the first time for me contributing to an external project that way, and I will need to learn how to do it properly. I will need to find somebody to help me with that.
+During the brainhack school, I'd like to 
+  * preprocess my own brain using Mallar's pipeline
+  * create a surface of my own brain with the help of Joane /Christopf
+  * send it to 3d printer with the help of Christopf
+  
+  
+  * send all HCP data for cleaning before CIVET using Mallar's pipeline
+  * after that send HCP data to CIVET using Cbrain
+  * after that compare results with previous our version, and perhaps also with Mallar's version
+
+Finally, with DL
+  * get DL working in my laptop, idelly in Rstudio
+  * make a picture of result one and run it through the stylify pipeline
