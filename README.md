@@ -1,28 +1,54 @@
+The general objective of my brainhack project is to learn **cortical thickness (CT) data processing** and **deep learning (DL)**. 
+
 # Background
+## CT
 
-The general objective of my brainhack project is to learn cortical thickness (CT) data processing and deep learning (DL). While I have aready published on CT data, I have used high-level parcels from Human connectome project (HCP), preprocessed by others. Given the expertise at this workshop, I would like to know the process from the start to parcel. This is also motivated by Mallar's comment, that once they run their preprocessing steps, CIVET will perform much better. Currently, we lost ~30% of the CT data due to QC issues. So far, I have not applied DL in my research.
-My publication: https://doi.org/10.1101/204917
-# The next step
+I have previous experience with CT, as I have already pulished a previous paper. At the same time, there I used high-level parcels from Human connectome project (HCP), preprocessed by others. Given the expertise at this workshop, I would like to know the CT otaining  process from the start to parcel. This is also motivated by Mallar's comment, that once they run their preprocessing steps, CIVET will perform much better. Currently, we lost ~30% of the CT data due to QC issues.
 
-The first step is to obtain preprocessing software from Mallar's web page.  He also offered their preprocessed actual CT data from the HCP. This would be a good validation data set, to make sure that I did everything correctly.
+My publication: https://doi.org/10.1101/204917.
 
-I will also apply the preprocessing pipeline to my own brain scan from participating in research. This will enable me to really start from 0 and create a surface for 3d-printing.
+To make the CT pipeline more personal, my secondary goal is to 3D print my own brain, for which I have a T1.
 
-Finally, I will attempt to get a style transfer running to get my feed wet with DL.
+## DL
 
+So far, I have not applied DL in my research. However, I would like to use DL layers to test various theoretical considerantions in personality, which could also apply for brain data.
 
+# The next steps
 
-# Specific learning objectives and deliverables
-During the brainhack school, I'd like to 
-  * preprocess my own brain using Mallar's pipeline
-  * create a surface of my own brain with the help of Joane /Christopf
-  * send it to 3d printer with the help of Christopf
-  
-  
-  * send all HCP data for cleaning before CIVET using Mallar's pipeline
-  * after that send HCP data to CIVET using Cbrain
-  * after that compare results with previous our version, and perhaps also with Mallar's version
+##CT in HCP
 
-Finally, with DL
-  * get DL working in my laptop, idelly in Rstudio
-  * make a picture of result one and run it through the stylify pipeline
+ - [x] Obtain T1 weighted data from HCP, young adult S1200 release. This is availale for me at the MNI. 
+ 	*  the file formats are .mnc and .nii
+ - [x] get a CIVET account
+ - [ ] get Mallar's pipeline working in Docker or lab linux computer
+ - [ ] (optional) - obtain HCP processed data from Mallar's lab
+ - [ ] practice on one dataset (my brain)
+ - [ ] run script on the HCP dataset
+ 	- [ ] first run Mallar's script
+ 	- [ ] then run CIVET script
+ - [ ] compare the number of people passed in original CIVET run, Mallar's script + CIVET and Mallar's HCP cleaning effort
+ - [ ] compare the people passed in one, and not passed in another, to understand the type of errors passed with the advanced pipeline
+ - [ ] run published analysis again with new data, to see if and how the results change. 
+
+## CT 3d print
+ - [ ] obtain surface files for freesurfer
+ - [ ] talk to Sebastian on how to send the surface files to printer
+ - [ ] print brains
+ - [ ] ...
+ - [ ] profit!
+
+## DL
+
+The goal is to get my feet wet with DL and learn how to rearrange layers for my goals. Therefore, I will apply DL for some simple goals, but also more complex ones.
+- [x] get DL working in R, as I am more familiar with R
+- [x] make a beautiful brain-art picture
+- [ ] make a photo of my printed brain and convert that into an art picture
+
+### non-brain DL
+
+The overearching theme for personality psychology is in fact rather similar to brain reserach  - do we need high order personality traits / brain parcels or low-order personality traits/brain parcels? The criterium should be predicting interesting phenotypes, like obesity, alcohol consumption, or other health behaviours.
+
+ - [x] obtain personality-outcome data (N=3500)
+ - [ ] figure out the way to configure neuronal layers to correspond to certain theoretical limits (5 factors, 30 facets, interactions/moderations)
+ - [ ] run the modes
+
